@@ -5,6 +5,12 @@ import java.util.ArrayList;
 public class CruzarPadres {
 
     public static void main(String[] args) {
+        int[] padre, madre;
+
+        //Primer caso de test
+        padre = new int[]{1, 0};
+        madre = new int[]{1, 0};
+        testAlgoritmo(padre, madre);
 
     }
 
@@ -32,6 +38,7 @@ public class CruzarPadres {
         while (contador < padre.length) {
             hijo1[contador] = padre[contador];
             hijo2[contador] = padre[contador];
+            contador++;
         }
 
         boolean alternador = true;
@@ -84,6 +91,7 @@ public class CruzarPadres {
                     alternador = !alternador;
                 }
             }
+            contador++;
         }
 
         ArrayList<boolean[]> lista = new ArrayList<>();
