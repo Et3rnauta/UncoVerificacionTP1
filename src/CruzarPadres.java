@@ -8,10 +8,20 @@ public class CruzarPadres {
         int[] padre, madre;
 
         //Primer caso de test
-        padre = new int[]{1, 0};
-        madre = new int[]{1, 0};
+        padre = new int[]{};
+        madre = new int[]{};
         testAlgoritmo(padre, madre);
-
+        
+        //Segundo caso de test
+        padre = new int[]{1, 1, 1, 0, 0, 0};
+        madre = new int[]{1, 1, 1, 0, 0, 0};
+        testAlgoritmo(padre, madre);
+        
+        
+        //Tercer caso de test
+        padre = new int[]{1, 0, 1, 0, 1, 0};
+        madre = new int[]{0, 1, 0, 1, 0, 1};
+        testAlgoritmo(padre, madre);
     }
 
     private static void testAlgoritmo(int[] padre, int[] madre) {
@@ -34,7 +44,7 @@ public class CruzarPadres {
         boolean[] hijo1 = new boolean[padre.length], hijo2 = new boolean[padre.length];
         int contador;
 
-        contador = 0;
+        contador = 0;        
         while (contador < padre.length) {
             hijo1[contador] = padre[contador];
             hijo2[contador] = padre[contador];
