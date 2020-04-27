@@ -8,17 +8,19 @@ public class CruzarPadres {
 
     }
 
-    private static void testAlgoritmo(boolean[] padre, boolean[] madre) {
+    private static void testAlgoritmo(int[] padre, int[] madre) {
+        boolean[] padreBool = transformar(padre),
+                madreBool = transformar(madre);
         System.out.print("padre");
-        printArray(padre);
+        printArray(padreBool);
         System.out.print("madre");
-        printArray(madre);
+        printArray(madreBool);
 
-        ArrayList<boolean[]> resultado = cruzarPadres(padre, madre);
+        ArrayList<boolean[]> resultado = cruzarPadres(padreBool, madreBool);
 
         System.out.print("hijo1");
         printArray(resultado.get(0));
-        System.out.println("hijo2");
+        System.out.print("hijo2");
         printArray(resultado.get(1));
     }
 
@@ -95,5 +97,15 @@ public class CruzarPadres {
             }
         }
         System.out.println(" }");
+    }
+
+    private static boolean[] transformar(int[] array) {
+        boolean[] arrayBool = new boolean[array.length];
+
+        for (int i = 0; i < arrayBool.length; i++) {
+            arrayBool[i] = array[i] > 0;
+        }
+
+        return arrayBool;
     }
 }
