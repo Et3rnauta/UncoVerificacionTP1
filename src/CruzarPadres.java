@@ -26,54 +26,59 @@ public class CruzarPadres {
 
     private static ArrayList<boolean[]> cruzarPadres(boolean[] padre, boolean[] madre) {
         boolean[] hijo1 = new boolean[padre.length], hijo2 = new boolean[padre.length];
-        for (int i = 0; i < padre.length; i++) {
-            hijo1[i] = padre[i];
-            hijo2[i] = padre[i];
+        int contador;
+
+        contador = 0;
+        while (contador < padre.length) {
+            hijo1[contador] = padre[contador];
+            hijo2[contador] = padre[contador];
         }
 
         boolean alternador = true;
         int balance = 0;
-        for (int i = 0; i < padre.length; i++) {
-            if (padre[i] != madre[i]) {
+
+        contador = 0;
+        while (contador < padre.length) {
+            if (padre[contador] != madre[contador]) {
                 /* Si el valor es distinto, le asigna al primer hijo el mismo valor que el padre y el opuesto al 
                 segundo. Luego, en la proxima diferencia, asigna los valores opuestos para balancear el arreglo
                 y cambia el alternador, para que (si existe algun otra diferencia) realice el mismo proceso pero 
                 esta vez, mirando al segundo hijo*/
                 if (alternador) {
                     if (balance == 0) {
-                        hijo2[i] = !padre[i];
-                        if (padre[i]) {
+                        hijo2[contador] = !padre[contador];
+                        if (padre[contador]) {
                             balance++;
                         } else {
                             balance--;
                         }
                     } else {
                         if (balance > 0) {
-                            hijo1[i] = false;
-                            hijo2[i] = true;
+                            hijo1[contador] = false;
+                            hijo2[contador] = true;
                             balance--;
                         } else {
-                            hijo1[i] = true;
-                            hijo2[i] = false;
+                            hijo1[contador] = true;
+                            hijo2[contador] = false;
                             balance++;
                         }
                         alternador = !alternador;
                     }
                 } else if (balance == 0) {
-                    hijo1[i] = !padre[i];
-                    if (padre[i]) {
+                    hijo1[contador] = !padre[contador];
+                    if (padre[contador]) {
                         balance++;
                     } else {
                         balance--;
                     }
                 } else {
                     if (balance > 0) {
-                        hijo2[i] = false;
-                        hijo1[i] = true;
+                        hijo2[contador] = false;
+                        hijo1[contador] = true;
                         balance--;
                     } else {
-                        hijo2[i] = true;
-                        hijo1[i] = false;
+                        hijo2[contador] = true;
+                        hijo1[contador] = false;
                         balance++;
                     }
                     alternador = !alternador;
@@ -89,8 +94,8 @@ public class CruzarPadres {
 
     public static void printArray(boolean[] array) {
         System.out.print("{ ");
-        for (int i = 0; i < array.length; i++) {
-            if (array[i]) {
+        for (int contador = 0; contador < array.length; contador++) {
+            if (array[contador]) {
                 System.out.print("1 ");
             } else {
                 System.out.print("0 ");
@@ -102,8 +107,8 @@ public class CruzarPadres {
     private static boolean[] transformar(int[] array) {
         boolean[] arrayBool = new boolean[array.length];
 
-        for (int i = 0; i < arrayBool.length; i++) {
-            arrayBool[i] = array[i] > 0;
+        for (int contador = 0; contador < arrayBool.length; contador++) {
+            arrayBool[contador] = array[contador] > 0;
         }
 
         return arrayBool;
