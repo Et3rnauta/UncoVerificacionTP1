@@ -13,10 +13,10 @@ public class CruzarPadresTest {
     @Test
     public void testCruzarPadres1() {
         System.out.println("*Se ejecuta el primer test del metodo cruzarPadres*");
-        int[] padre = {1, 0, 1, 0},
-                madre = {0, 1, 0, 1};
+        boolean[] padre = {},
+                madre = {};
 
-        ArrayList<boolean[]> hijos = CruzarPadres.cruzarPadres(transformar(padre), transformar(madre));
+        ArrayList<boolean[]> hijos = CruzarPadres.cruzarPadres(padre, madre);
 
         boolean[] hijo1, hijo2;
 
@@ -38,6 +38,52 @@ public class CruzarPadresTest {
         System.out.println("*Se ejecuta el segundo test del metodo cruzarPadres*");
         int[] padre = {1, 0, 1, 0},
                 madre = {0, 1, 0, 1};
+
+        ArrayList<boolean[]> hijos = CruzarPadres.cruzarPadres(transformar(padre), transformar(madre));
+
+        boolean[] hijo1, hijo2;
+
+        assertEquals(2, hijos.size());//Tiene solo 2 hijos
+
+        hijo1 = hijos.get(0);
+        hijo2 = hijos.get(1);
+
+        assertEquals(padre.length, hijo1.length);//La longitud del primer hijo es igual al padre
+        assertEquals(padre.length, hijo2.length);//La longitud del segundo hijo es igual al padre
+
+        //Tienen cantidad igual o aproximada de cantidad de valores booleanos
+        assertTrue(estaBalanceado(hijo1));
+        assertTrue(estaBalanceado(hijo2));
+    }
+    
+    @Test
+    public void testCruzarPadres3() {
+        System.out.println("*Se ejecuta el tercer test del metodo cruzarPadres*");
+        int[] padre = {1, 0, 1, 0, 0, 1},
+                madre = {1, 1, 0, 1, 0, 0};
+
+        ArrayList<boolean[]> hijos = CruzarPadres.cruzarPadres(transformar(padre), transformar(madre));
+
+        boolean[] hijo1, hijo2;
+
+        assertEquals(2, hijos.size());//Tiene solo 2 hijos
+
+        hijo1 = hijos.get(0);
+        hijo2 = hijos.get(1);
+
+        assertEquals(padre.length, hijo1.length);//La longitud del primer hijo es igual al padre
+        assertEquals(padre.length, hijo2.length);//La longitud del segundo hijo es igual al padre
+
+        //Tienen cantidad igual o aproximada de cantidad de valores booleanos
+        assertTrue(estaBalanceado(hijo1));
+        assertTrue(estaBalanceado(hijo2));
+    }
+    
+    @Test
+    public void testCruzarPadres4() {
+        System.out.println("*Se ejecuta el cuarto test del metodo cruzarPadres*");
+        int[] padre = {1, 1, 0, 1, 0, 0, 1, 0, 1},
+                madre = {1, 0, 1, 0, 1, 1, 0, 1, 0};
 
         ArrayList<boolean[]> hijos = CruzarPadres.cruzarPadres(transformar(padre), transformar(madre));
 

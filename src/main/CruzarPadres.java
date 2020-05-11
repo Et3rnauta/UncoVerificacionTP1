@@ -4,11 +4,12 @@ import java.util.ArrayList;
 
 // @author guido
 public class CruzarPadres {
+
     public static ArrayList<boolean[]> cruzarPadres(boolean[] padre, boolean[] madre) {
         boolean[] hijo1 = new boolean[padre.length], hijo2 = new boolean[padre.length];
         int contador;
 
-        contador = 0;        
+        contador = 0;
         while (contador < padre.length) {
             hijo1[contador] = padre[contador];
             hijo2[contador] = padre[contador];
